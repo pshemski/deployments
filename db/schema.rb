@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190320151838) do
+ActiveRecord::Schema.define(version: 20190320181647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20190320151838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "categories_templates", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "template_id"
+  end
+
+  add_index "categories_templates", ["category_id"], name: "index_categories_templates_on_category_id", using: :btree
+  add_index "categories_templates", ["template_id"], name: "index_categories_templates_on_template_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -47,6 +55,14 @@ ActiveRecord::Schema.define(version: 20190320151838) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer  "po"
+    t.string   "invoice_number"
+    t.datetime "invoice_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "locations", force: :cascade do |t|
