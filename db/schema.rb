@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20190320212916) do
     t.integer  "model_id"
     t.integer  "brand_id"
     t.integer  "invoice_id"
-    t.integer  "department_id"
     t.integer  "parent_id"
     t.string   "serial_number"
     t.string   "barcode"
@@ -85,7 +84,6 @@ ActiveRecord::Schema.define(version: 20190320212916) do
 
   add_index "items", ["brand_id"], name: "index_items_on_brand_id", using: :btree
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
-  add_index "items", ["department_id"], name: "index_items_on_department_id", using: :btree
   add_index "items", ["invoice_id"], name: "index_items_on_invoice_id", using: :btree
   add_index "items", ["model_id"], name: "index_items_on_model_id", using: :btree
   add_index "items", ["parent_id"], name: "index_items_on_parent_id", using: :btree
@@ -118,7 +116,6 @@ ActiveRecord::Schema.define(version: 20190320212916) do
   add_foreign_key "cities", "countries"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "departments"
   add_foreign_key "items", "invoices"
   add_foreign_key "items", "models"
 end

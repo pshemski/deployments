@@ -5,7 +5,6 @@ class CreateItems < ActiveRecord::Migration
       t.references :model, index: true, foreign_key: true
       t.references :brand, index: true, foreign_key: true
       t.references :invoice, index: true, foreign_key: true
-      t.references :department, index: true, foreign_key: true
       t.references :parent, index: true
       t.string :serial_number
       t.string :barcode
