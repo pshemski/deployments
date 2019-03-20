@@ -1,5 +1,5 @@
 class CreateInvoices < ActiveRecord::Migration
-  def change
+  def up
     create_table :invoices do |t|
       t.integer :po
       t.string :invoice_number
@@ -7,5 +7,9 @@ class CreateInvoices < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+  end
+
+  def down
+    drop_table :invoices
   end
 end
